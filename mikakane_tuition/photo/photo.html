@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<title>MixItUp</title>
+	<link href="./photo.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+	<script>
+		// On document ready:
+		$(function() {
+			// Instantiate MixItUp:
+			$('#Container').mixItUp();
+		})
+	</script>
+</head>
+
+<body>
+	<div class="controls">
+		<a href="#">photos upload</a>
+		<label>Category:</label>
+		<button class="filter" data-filter="all">All</button>
+		<button class="filter" data-filter=".category-1">Gray</button>
+		<button class="filter" data-filter=".category-2">Red</button>
+		<button class="filter" data-filter=".category-3">Hogehoge</button>
+		<button class="filter" data-filter=".category-4">Piyopiyo</button>
+		<a id="logout" href="#">Logout</a>
+	</div>
+	<div id="Container" class="container">
+		<div id="masonry">
+		<div class="mix category-1 category-3 "><img src="./photos/1.jpg" id="aaa"></div>
+		<div class="mix category-2 category-3 "><img src="./photos/p1.jpg"></div>
+		<div class="mix category-1 category-3 "><img src="./photos/3.jpg"></div>
+		<div class="mix category-2 category-3 "><img src="./photos/p3.jpg"></div>
+		<div class="mix category-1 category-4 "><img src="./photos/2.jpg"></div>
+		<div class="mix category-2 category-4 "><img src="./photos/p2.jpg"></div>
+		<div class="mix category-1 category-4 "><img src="./photos/4.jpg"></div>
+		<div class="mix category-2 category-4 "><img src="./photos/p4.jpg"></div>
+		<div class="mix category-3 grid"><img src="./photos/p5.jpg"></div>
+		</div>
+	</div>
+</body>
+
+</html>

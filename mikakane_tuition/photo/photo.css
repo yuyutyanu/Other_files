@@ -1,0 +1,47 @@
+@charset "utf-8";
+.controls {
+    background-color: black;
+    opacity: 0.7;
+    height: 80px;
+		margin-bottom:10px;
+}
+.controls button {
+    font-size: 20px;
+    margin-top: 15px;
+    padding: 10px 30px;
+    background-color:rgb(195, 201, 223) ;
+    color: black;
+		font-family: 'Roboto Slab', serif;
+}
+.controls button:focus{
+  background-color:gray;
+}
+.controls label{
+  margin-left:14%;
+  color:white;
+  font-family: 'Roboto Slab', serif;
+}
+.controls a{
+  margin-left:10px;
+  font-family: 'Roboto Slab', serif;
+  color:white;
+}
+.controls #logout{
+  position: absolute;
+  margin-left:200px;
+  margin-top:45px;
+}
+.container{
+	background-color: black;
+}
+.container .mix {
+    display: none;
+}
+.container img {
+
+    width: 300px;
+    height: 300px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left: 15px;
+}

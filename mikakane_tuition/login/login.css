@@ -1,0 +1,17 @@
+body{background-color:#f8fbf8;
+  font-family: 'Roboto Slab', serif;
+}
+.main{
+  text-align: center;
+  margin-top:200px;
+}
+.main h1{
+  margin-bottom:100px;
+}
+.main input{
+  margin-right:80px;
+}
+#name{
+  font-size: 40px;
+  margin-right:20px;
+}
