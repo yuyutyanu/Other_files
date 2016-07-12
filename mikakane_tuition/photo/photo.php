@@ -7,11 +7,10 @@
 	<link href="./photo.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css">
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="http://maps.google.com/maps/api/js?key=AIzaSyCP_uYrL9C5iUgcoNbOuk1U-pCh9PpijbUAIzaSyCP_uYrL9C5iUgcoNbOuk1U-pCh9PpijbU&sensor=true&language=ja" charset="utf-8"></script>
 	<style>
 	#map{
 		width:100%;
-		height:100%;
+		height:500px;
 	}
 	</style>
 <script>
@@ -70,7 +69,7 @@ while($j<3){
 	if($gps_e_or_w=='W'){
 		$data2 = $data2*-1;
 	}
-echo $data2;
+echo "<h2>".$data2<"/h2>";
 }
 	}
 	else{
@@ -81,14 +80,19 @@ echo $data2;
 
 		 <div id="map"></div>
 		 <script>
-		 var latlng = new google.maps.LatLng(35.66, 139.69);
-		 var options = {
-			 zoom: 15,
-			 center: latlng,
-			 mapTypeId: google.maps.MapTypeId.ROADMAP
-		 };
-		 var map = new google.maps.Map(document.getElementById('map'),options);
-		 </script>
+		 var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+</script>
+
+<script async defer
+ 	src="http://maps.google.com/maps/api/js?key=AIzaSyCP_uYrL9C5iUgcoNbOuk1U-pCh9PpijbU&language=ja&callback=initMap"></script>
+
+    </script>
 		<br>
 		<a href="./photos/1.jpg" data-lightbox="image" data-title="test"><img src="./photos/1.jpg"/></a>
 		<a href="./photos/p1.jpg" data-lightbox="image" data-title="test"><img src="./photos/p1.jpg"/></a>
