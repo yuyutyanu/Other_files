@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>mikakanelesson</title>
-	<link href="./photo.css" rel="stylesheet">
+	<link href="./gps.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css">
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<style>
@@ -98,7 +98,7 @@ function initMap() {
 <script async defer
  	src="http://maps.google.com/maps/api/js?key=AIzaSyCP_uYrL9C5iUgcoNbOuk1U-pCh9PpijbU&language=ja&callback=initMap"></script>
 </script>
-		<script src="./photo.js" charset="utf-8"></script>
+		<script src="./gps.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="./lightbox2-master/dist/css/lightbox.css" media="screen" title="no title" charset="utf-8">
 		<script src="./lightbox2-master/dist/js/lightbox.js" charset="utf-8"></script>
 </body>
