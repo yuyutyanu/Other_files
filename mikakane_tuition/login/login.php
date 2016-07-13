@@ -29,7 +29,7 @@ Register by checking the e-mail is completed
       <input type="text" name="name" placeholder="ID"><br>
       <input type="text" name="name" placeholder="password"><br>
       <input type="email" placeholder="mailaddress"><br>
-      <input type="submit" name="name" value="registration" id="reg_submit">
+      <input type="submit" name="name" value="send" id="reg_submit">
     </form>
     </div>
 <div class="login_header">

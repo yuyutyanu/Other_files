@@ -9,16 +9,14 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<style>
 	#map{
-		width:100%;
+		margin-top:25px;
+		margin-left:2.5%;
+		width:95%;
 		height:500px;
+		box-shadow: 10px 10px 10px ;
 	}
 	</style>
-<script>
-lightbox.option({
-	'resizeDuration': 200,
-	'wrapAround': true
-})
-</script>
+
 </head>
 
 <body>
@@ -27,57 +25,66 @@ lightbox.option({
 	</div>
 
 	<div id="Container" class="container">
-		<form class="" action="#" method="post">
-			<input type="file" name="name" value="">
-			<input type="submit">
+		<form  action="#" method="post">
+			<input class="button"type="file" name="name" value="">
+			<input class="button" type="submit"value="gpsget">
+			<input type="text" id="address" value="">
+			<input class="button" type="submit"  value="go" onclick="codeAddress()">
 		</form>
-
-		<?php
+<div id="gps">
+			<?php
+			//exifdataを取り出す
 		if(!empty($_POST["name"])){
 		$img = './photos/'.$_POST["name"];
 		$exif = @exif_read_data($img);
 
+		//exifdataからgpsに関係のあるものだけを取り出す
 		if(isset($exif['GPSLatitudeRef'])||isset($exif['GPSLatitude'])||isset($exif['GPSLongitudeRef'])||isset($exif['GPSLongitude'])){
 		$gps_n_or_s = $exif['GPSLatitudeRef'];
 		$gps_lati = $exif['GPSLatitude'];
 		$gps_e_or_w = $exif['GPSLongitudeRef'];
 		$gps_longi = $exif['GPSLongitude'];
 
-		//N or S
-		print $gps_n_or_s."&nbsp";
+//緯度
 		$i=0;
+		$latitude_data="";
 		while($i<3){
 			//gps情報を　○○/△△　から　小数点の値に変更
 			$latitude = explode("/",$gps_lati[$i]);
 			$data1 = $latitude[0] / $latitude[1]."&nbsp";
+			$latitude_data=$latitude_data.$data1;
 			$i+=1;
+		}
 			//方角が南なら緯度をマイナスに
 			if($gps_n_or_s=='S'){
 				$data1=$data1*-1;
 			}
-			echo $data1;
-}
-// E or W
-print $gps_e_or_w."&nbsp";
+//経度
 $j=0;
+$longitude_data="";
 while($j<3){
 	//gps情報を　○○/△△　から　小数点の値に変更
 	$longitude = explode("/",$gps_longi[$j]);
 	$data2 = $longitude[0] / $longitude[1]."&nbsp";
+	$longitude_data = $longitude_data.$data2;
 	$j+=1;
+}
 	//方角が西なら経度をマイナスに
 	if($gps_e_or_w=='W'){
 		$data2 = $data2*-1;
 	}
-echo "<h2>".$data2<"/h2>";
 }
-	}
 	else{
-		echo 'この画像にはgps情報が入っていません';
+		echo '<h2>この画像にはgps情報が入っていません</h2>';
 	}
 }
-		 ?>
-
+//　echo N　or S + 緯度  + W or E + 経度
+if(isset($gps_n_or_s)||isset($latitude_data)||isset($gps_e_or_w)||isset($longitude_data)){
+$gpsposition = "<span style='font-size:20px;'> GPSposition :".$gps_n_or_s."&nbsp".$latitude_data.$gps_e_or_w."&nbsp".$longitude_data."</span>";
+echo $gpsposition;
+}
+?>
+</div>
 		 <div id="map"></div>
 		 <script>
 		 var map;
@@ -88,27 +95,11 @@ function initMap() {
   });
 }
 </script>
-
 <script async defer
  	src="http://maps.google.com/maps/api/js?key=AIzaSyCP_uYrL9C5iUgcoNbOuk1U-pCh9PpijbU&language=ja&callback=initMap"></script>
-
-    </script>
-		<br>
-		<a href="./photos/1.jpg" data-lightbox="image" data-title="test"><img src="./photos/1.jpg"/></a>
-		<a href="./photos/p1.jpg" data-lightbox="image" data-title="test"><img src="./photos/p1.jpg"/></a>
-		<a href="./photos/3.jpg" data-lightbox="image" data-title="test"><img src="./photos/3.jpg"></a>
-		<a href="./photos/p3.jpg" data-lightbox="image" data-title="test"><img src="./photos/p3.jpg"></a>
-		<a href="./photos/2.jpg" data-lightbox="image" data-title="test"><img src="./photos/2.jpg"></a>
-		<a href="./photos/p2.jpg" data-lightbox="image" data-title="test"><img src="./photos/p2.jpg"></a>
-		<a href="./photos/4.jpg" data-lightbox="image" data-title="test"><img src="./photos/4.jpg"></a>
-		<a href="./photos/p4.jpg" data-lightbox="image" data-title="test"><img src="./photos/p4.jpg"></a>
-		</div>
-
-
-
+</script>
 		<script src="./photo.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="./lightbox2-master/dist/css/lightbox.css" media="screen" title="no title" charset="utf-8">
 		<script src="./lightbox2-master/dist/js/lightbox.js" charset="utf-8"></script>
 </body>
-
 </html>
